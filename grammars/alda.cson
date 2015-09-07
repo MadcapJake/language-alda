@@ -55,7 +55,7 @@
     'name': 'keyword.operator.octave-shift.alda'
   }
   {
-    'match': '[~.]|(?<=[cdefgab])\\d+|r\\d*'
+    'match': '[~.]|(?<=[cdefgab\\+\\-~])\\d+|r\\d*'
     'name': 'string.quoted.operator.timing.alda'
   }
   {

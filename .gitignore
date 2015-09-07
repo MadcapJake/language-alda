@@ -1,0 +1,4 @@
+.DS_Store
+*.alda
+npm-debug.log
+node_modules

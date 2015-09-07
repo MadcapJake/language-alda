@@ -1,0 +1,88 @@
+'scopeName': 'source.alda'
+'fileTypes': [
+  'alda'
+]
+'name': 'Alda'
+'patterns': [
+  {
+    'match': "(?x)
+    ^([a-zA-Z]{2}[\\w\\-+\\'()]*)
+    (?:\\s*/\\s*([a-zA-Z]{2}[\\w\\-+\\'()]*))*
+    (?:\\s*\\\"([a-zA-Z]{2}[\\w\\-+\\'()]*)\\\")?
+    \\s*:"
+    'captures':
+      '1':
+        'name': 'constant.language.instrument.alda'
+      '2':
+        'name': 'constant.language.instrument.alda'
+      '3':
+        'name': 'storage.type.nickname.alda'
+    'name': 'meta.part.call.alda'
+  }
+  {
+    'match': '^\\s*(V\\d+):'
+    'captures':
+      '1':
+        'name': 'entity.other.inherited-class.voice.alda'
+  }
+  {
+    'match': '#.*$'
+    'name': 'comment.line.number-sign.alda'
+  }
+  {
+    'match': '\\|'
+    'name': 'comment.character.pipe.measure.alda'
+  }
+  {
+    'begin': '\\(\\*'
+    'end': '\\*\\)'
+    'name': 'comment.block.inline.alda'
+  }
+  {
+    'match': "%[a-zA-Z]{2}[\\w\\-+\\'()]*"
+    'name': 'entity.name.function.marker.alda'
+  }
+  {
+    'match': "@[a-zA-Z]{2}[\\w\\-+\\'()]*"
+    'name': 'entity.name.function.at-marker.alda'
+  }
+  {
+    'match': '\\b(o\\d+)\\b'
+    'name': 'keyword.operator.octave-change.alda'
+  }
+  {
+    'match': '[><]'
+    'name': 'keyword.operator.octave-shift.alda'
+  }
+  {
+    'match': '[~.]|(?<=[cdefgab])\\d+|r\\d*'
+    'name': 'string.quoted.operator.timing.alda'
+  }
+  {
+    'match': '(?<=[cdefgab])[+\\-]+'
+    'name': 'variable.parameter.operator.pitch.alda'
+  }
+  {
+    'match': '/'
+    'name': 'constant.numeric.subchord.alda'
+  }
+  {
+    'begin': '\\((?!\\*)'
+    'end': '(?<!\\*)\\)'
+    'patterns': [
+      {
+        'match': '\\b([a-z]+)(\\!)?\\s+'
+        'captures':
+          '1':
+            'name': 'storage.modifier.attribute.alda'
+          '2':
+            'name': 'string.quoted.attribute.global.alda'
+      }
+      {
+        'match': '\\b(\\d+)\\b'
+        'name': 'variable.parameter.attribute.value.alda'
+      }
+    ]
+    'name': 'meta.attribute.alda'
+  }
+]

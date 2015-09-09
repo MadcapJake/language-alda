@@ -1,6 +1,6 @@
 {
   "name": "language-alda",
-  "main": "./lib/language-alda",
+  "main": "lib/providers",
   "version": "0.2.0",
   "description": "Alda language support in Atom",
   "keywords": [
@@ -23,5 +23,16 @@
   "bugs": {
     "url": "https://github.com/madcapjake/language-alda/issues"
   },
-  "homepage": "https://github.com/madcapjake/language-alda#readme"
+  "homepage": "https://github.com/madcapjake/language-alda#readme",
+  "dependencies": {
+    "season": "^5.3.0",
+    "underscore.string": "^3.2.2"
+  },
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "getAutocompleteProvider"
+      }
+    }
+  }
 }

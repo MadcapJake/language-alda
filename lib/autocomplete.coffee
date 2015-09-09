@@ -40,7 +40,8 @@ module.exports =
       return
 
   isCompletingMarker: ({scopeDescriptor, bufferPosition, prefix, editor}) ->
-    S.startsWith(prefix, '@')
+    scopeDescriptor.getScopesArray()
+      .indexOf('entity.name.function.at-marker.alda') isnt -1
 
   isCompletingAttribute: ({scopeDescriptor, bufferPosition, prefix, editor}) ->
     scopeDescriptor.getScopesArray().indexOf('meta.attribute.alda') isnt -1
@@ -49,10 +50,24 @@ module.exports =
     prefix.length > 2 and not S.include(prefix, ':') and
       bufferPosition.column - prefix.length is 0
 
-  getMarkerComps: ({scopeDescriptor, bufferPosition, prefix, editor}) ->
+  getMarkerComps: ({prefix, editor}) ->
+    console.log 'Getting markers'
+    markers = []
+    completions = []
+    if prefix
+      for word in S.words(editor.getText()) when firstCharsEqual(word, "%")
+        markers.push(word.substr(1))
+      for marker in markers when firstCharsEqual(marker, prefix)
+        completions.push(@buildMarkerComp(marker))
+      completions
 
+  buildMarkerComp: (marker) ->
+    type: 'marker'
+    text: marker
+    iconHTML: '<i class="icon-pin"></i>'
+    rightLabel: 'Marker'
 
-  getAttributeComps: ({scopeDescriptor, bufferPosition, prefix, editor}) ->
+  getAttributeComps: ({prefix}) ->
     completions = []
     if prefix
       for attr in @attributes when firstCharsEqual(attr, prefix)

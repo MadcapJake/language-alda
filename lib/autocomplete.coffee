@@ -22,8 +22,6 @@ module.exports =
   #   position
   getSuggestions: (request) ->
     completions = null
-    # scopes = request.scopeDescriptor.getScopesArray()
-    # isAlda = hasScope(scopes, 'source.alda')
 
     if @isCompletingMarker(request)
       completions = @getMarkerComps(request)
@@ -39,14 +37,14 @@ module.exports =
       {@attributes, @instruments} = src unless err?
       return
 
-  isCompletingMarker: ({scopeDescriptor, bufferPosition, prefix, editor}) ->
+  isCompletingMarker: ({scopeDescriptor}) ->
     scopeDescriptor.getScopesArray()
       .indexOf('entity.name.function.at-marker.alda') isnt -1
 
-  isCompletingAttribute: ({scopeDescriptor, bufferPosition, prefix, editor}) ->
+  isCompletingAttribute: ({scopeDescriptor}) ->
     scopeDescriptor.getScopesArray().indexOf('meta.attribute.alda') isnt -1
 
-  isCompletingInstrument: ({scopeDescriptor, bufferPosition, prefix, editor}) ->
+  isCompletingInstrument: ({bufferPosition, prefix}) ->
     prefix.length > 2 and not S.include(prefix, ':') and
       bufferPosition.column - prefix.length is 0
 

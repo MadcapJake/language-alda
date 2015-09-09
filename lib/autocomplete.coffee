@@ -74,7 +74,7 @@ module.exports =
 
   buildAttributeComp: (attr) ->
     type: 'attribute'
-    snippet: "#{attr} ${1:99}$2"
+    snippet: "#{attr}$1 ${2:99}$3"
     displayText: attr
     iconHTML: '<i class="icon-settings"></i>'
     rightLabel: 'Attribute'

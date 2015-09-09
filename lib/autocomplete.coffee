@@ -51,13 +51,11 @@ module.exports =
 
   getMarkerComps: ({scopeDescriptor, bufferPosition, prefix, editor}) ->
 
+
   getAttributeComps: ({scopeDescriptor, bufferPosition, prefix, editor}) ->
-    console.log prefix
     completions = []
     if prefix
-      console.log @attributes
       for attr in @attributes when firstCharsEqual(attr, prefix)
-        console.log "prefix: #{prefix}, attr: #{attr}"
         completions.push(@buildAttributeComp(attr))
       completions
 
@@ -68,7 +66,18 @@ module.exports =
     iconHTML: '<i class="icon-settings"></i>'
     rightLabel: 'Attribute'
 
-  getInstrumentComps: ({scopeDescriptor, bufferPosition, prefix, editor}) ->
+  getInstrumentComps: ({prefix}) ->
+    completions = []
+    if prefix
+      for instr in @instruments when firstCharsEqual(instr, prefix)
+        completions.push(@buildInstrumentComp(instr))
+      completions
+
+  buildInstrumentComp: (instr) ->
+    type: 'insturment'
+    text: instr
+    iconHTML: '<i class="icon-unmute"></i>'
+    rightLabel: 'Instrument'
 
 firstCharsEqual = (str1, str2) ->
   str1[0].toLowerCase() is str2[0].toLowerCase()

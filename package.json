@@ -26,12 +26,19 @@
   "homepage": "https://github.com/madcapjake/language-alda#readme",
   "dependencies": {
     "season": "^5.3.0",
+    "underscore": "^1.8.3",
     "underscore.string": "^3.2.2"
   },
   "providedServices": {
     "autocomplete.provider": {
       "versions": {
         "2.0.0": "getAutocompleteProvider"
+      }
+    },
+    "builder": {
+      "description": "Plays alda files with the alda command-line tool",
+      "versions": {
+        "1.0.0": "getAtomBuildProvider"
       }
     }
   }

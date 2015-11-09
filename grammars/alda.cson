@@ -59,7 +59,7 @@
     'name': 'string.quoted.operator.timing.alda'
   }
   {
-    'match': '(?<=[cdefgab])[+\\-]+'
+    'match': '(?<=[cdefgab])([+\\-]+|\\=)'
     'name': 'variable.parameter.operator.pitch.alda'
   }
   {
@@ -67,21 +67,10 @@
     'name': 'constant.numeric.subchord.alda'
   }
   {
-    'begin': '\\((?!\\*)'
-    'end': '(?<!\\*)\\)'
+    'begin': '\\('
+    'end': '\\)'
     'patterns': [
-      {
-        'match': '\\b([a-z]+)(\\!)?\\s+'
-        'captures':
-          '1':
-            'name': 'storage.modifier.attribute.alda'
-          '2':
-            'name': 'string.quoted.attribute.global.alda'
-      }
-      {
-        'match': '\\b(\\d+)\\b'
-        'name': 'variable.parameter.attribute.value.alda'
-      }
+      'include': 'source.clojure'
     ]
     'name': 'meta.attribute.alda'
   }

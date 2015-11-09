@@ -88,7 +88,8 @@ module.exports =
 
   buildInstrumentComp: (instr) ->
     type: 'insturment'
-    text: instr
+    snippet: "#{instr}:$1"
+    displayText: instr
     iconHTML: '<i class="icon-unmute"></i>'
     rightLabel: 'Instrument'
 

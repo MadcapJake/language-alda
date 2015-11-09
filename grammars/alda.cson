@@ -34,8 +34,8 @@
     'name': 'comment.character.pipe.measure.alda'
   }
   {
-    'begin': '\\(\\*'
-    'end': '\\*\\)'
+    'begin': '\\(comment\\b'
+    'end': '\\)'
     'name': 'comment.block.inline.alda'
   }
   {

@@ -2,3 +2,4 @@
 *.alda
 npm-debug.log
 node_modules
+.tags

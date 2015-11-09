@@ -59,7 +59,12 @@
     'name': 'keyword.operator.repeat.alda'
   }
   {
-    'match': '[~.]|(?<=[cdefgab\\+\\-\\}~])\\d+|r\\d*'
+    'match': '(?x)
+      [~.]
+      |
+      (?<=[cdefgab\\+\\-\\}~])\\d+(?:s|ms)?
+      |
+      r\\d*(?:s|ms)?'
     'name': 'string.quoted.operator.timing.alda'
   }
   {

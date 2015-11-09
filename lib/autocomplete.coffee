@@ -27,6 +27,8 @@ module.exports =
       completions = @getMarkerComps(request)
     else if @isCompletingAttribute(request)
       completions = @getAttributeComps(request)
+    else if @isCompletingInnerInstrument(request)
+      completions = @getInnerInstrumentComps(request)
     else if @isCompletingInstrument(request)
       completions = @getInstrumentComps(request)
 
@@ -44,9 +46,11 @@ module.exports =
   isCompletingAttribute: ({scopeDescriptor}) ->
     scopeDescriptor.getScopesArray().indexOf('meta.attribute.alda') isnt -1
 
-  isCompletingInstrument: ({bufferPosition, prefix}) ->
-    prefix.length > 2 and not S.include(prefix, ':') and
-      bufferPosition.column - prefix.length is 0
+  isCompletingInnerInstrument: ({scopeDescriptor}) ->
+    scopeDescriptor.getScopesArray().indexOf('meta.part.call.alda') isnt -1
+
+  isCompletingInstrument: ({scopeDescriptor, bufferPosition, prefix}) ->
+    prefix.length > 1 and not S.include(prefix, ':')
 
   getMarkerComps: ({prefix, editor}) ->
     console.log 'Getting markers'
@@ -83,12 +87,19 @@ module.exports =
     completions = []
     if prefix
       for instr in @instruments when firstCharsEqual(instr, prefix)
-        completions.push(@buildInstrumentComp(instr))
+        completions.push(@buildInstrumentComp(instr, true))
       completions
 
-  buildInstrumentComp: (instr) ->
+  getInnerInstrumentComps: ({prefix}) ->
+    completions = []
+    if prefix
+      for instr in @instruments when firstCharsEqual(instr, prefix)
+        completions.push(@buildInstrumentComp(instr, false))
+      completions
+
+  buildInstrumentComp: (instr, isInner) ->
     type: 'insturment'
-    snippet: "#{instr}:$1"
+    snippet: if isInner then "#{instr}$1:$2" else "#{instr}$1"
     displayText: instr
     iconHTML: '<i class="icon-unmute"></i>'
     rightLabel: 'Instrument'

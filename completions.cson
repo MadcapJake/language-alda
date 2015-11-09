@@ -61,14 +61,18 @@
   'steel-drum'
 ]
 'attributes': [
-  'vol'
-  'volume'
+  'duration'
+  'key-sig'
+  'key-signature'
+  'octave'
   'pan'
   'panning'
-  'tempo'
   'quant'
   'quantize'
   'quantization'
+  'tempo'
   'track-vol'
   'track-volume'
+  'vol'
+  'volume'
 ]

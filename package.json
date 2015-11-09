@@ -1,7 +1,7 @@
 {
   "name": "language-alda",
   "main": "lib/providers",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Alda language support in Atom",
   "keywords": [
     "atom",

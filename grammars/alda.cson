@@ -85,6 +85,6 @@
     'patterns': [
       'include': 'source.clojure'
     ]
-    'name': 'meta.attribute.alda'
+    'name': 'meta.inline.clojure.alda'
   }
 ]

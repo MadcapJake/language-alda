@@ -80,6 +80,21 @@
     ]
   }
   {
+    'begin': '(\\[)'
+    'beginCaptures':
+      '0':
+        'name': 'keyword.control.sequence.alda'
+    'end': '(\\])(\\*)?'
+    'endCaptures':
+      '1':
+        'name': 'keyword.control.sequence.alda'
+      '2':
+        'name': 'string.operator.repeat.alda'
+    'patterns': [
+      'include': '$self'
+    ]
+  }
+  {
     'begin': '\\('
     'end': '\\)'
     'patterns': [

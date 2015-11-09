@@ -55,6 +55,10 @@
     'name': 'keyword.operator.octave-shift.alda'
   }
   {
+    'match': '\\*\\s*\\d+'
+    'name': 'keyword.operator.repeat.alda'
+  }
+  {
     'match': '[~.]|(?<=[cdefgab\\+\\-\\}~])\\d+|r\\d*'
     'name': 'string.quoted.operator.timing.alda'
   }
@@ -84,12 +88,10 @@
     'beginCaptures':
       '0':
         'name': 'keyword.control.sequence.alda'
-    'end': '(\\])(\\*)?'
+    'end': '(\\])'
     'endCaptures':
-      '1':
+      '0':
         'name': 'keyword.control.sequence.alda'
-      '2':
-        'name': 'string.operator.repeat.alda'
     'patterns': [
       'include': '$self'
     ]

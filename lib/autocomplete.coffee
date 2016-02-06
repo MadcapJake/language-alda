@@ -98,7 +98,7 @@ module.exports =
       completions
 
   buildInstrumentComp: (instr, isInner) ->
-    type: 'insturment'
+    type: 'instrument'
     snippet: if isInner then "#{instr}$1:$2" else "#{instr}$1"
     displayText: instr
     iconHTML: '<i class="icon-unmute"></i>'

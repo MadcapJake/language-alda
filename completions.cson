@@ -59,7 +59,8 @@
   'kalimba'
   'bagpipes'
   'shenai'
-  'steel-drum'
+  'steel-drum',
+  'percussion'
 ]
 'attributes': [
   'duration'

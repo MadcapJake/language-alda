@@ -12,7 +12,7 @@ Adds syntax highlighting support to Alda files in Atom.  Will also be adding ser
 
 > A music programming language for musicians.
 
-Check out this [introduction](https://daveyarwood.github.io/alda/2015/09/05/alda-a-manifesto-and-gentle-introduction/) and the github [repo](https://github.com/alda-lang/alda).
+Check out this [introduction](https://blog.djy.io/alda-a-manifesto-and-gentle-introduction/) and the github [repo](https://github.com/alda-lang/alda).
 
 # License
 
